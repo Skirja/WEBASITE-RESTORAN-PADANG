@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Meja - Restoran Padang</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <link href="../styles.css" rel="stylesheet">
+</head>
+<body class="min-h-screen bg-gradient-to-br from-amber-100 to-amber-200 flex items-center justify-center p-4">
+    <div class="w-full max-w-2xl bg-white shadow-xl rounded-2xl overflow-hidden">
+        <a
+            href="../index.html"
+            class="absolute top-4 left-4 bg-amber-600 text-white py-2 px-4 rounded-lg hover:bg-amber-700 transition-colors duration-300"
+        >
+            <i data-lucide="home" class="w-5 h-5 inline-block"></i>
+            <span class="hidden md:inline-block md:ml-2">Beranda</span>
+        </a>
+        <div class="bg-amber-600 p-6 text-white text-center relative overflow-hidden">
+            <div id="pattern-background" class="absolute inset-0 opacity-10"></div>
+            <h1 class="text-3xl font-bold mb-2 relative z-10">Booking Meja</h1>
+            <p class="text-amber-100 relative z-10">Reservasi tempat untuk menikmati hidangan lezat kami</p>
+        </div>
+        <form id="bookingForm" class="p-6 space-y-6">
+            <div class="space-y-2">
+                <label for="fullName" class="text-amber-800 block">Nama Lengkap</label>
+                <input
+                    id="fullName"
+                    placeholder="Masukkan nama lengkap Anda"
+                    required
+                    class="w-full border-amber-300 focus:border-amber-500 focus:ring-amber-500 rounded-md"
+                />
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-2">
+                    <label for="date" class="text-amber-800 block">Tanggal</label>
+                    <input
+                        id="date"
+                        type="text"
+                        placeholder="Pilih tanggal"
+                        required
+                        class="w-full border-amber-300 focus:border-amber-500 focus:ring-amber-500 rounded-md"
+                    />
+                </div>
+                <div class="space-y-2">
+                    <label for="time" class="text-amber-800 block">Jam</label>
+                    <div class="relative">
+                        <input
+                            id="time"
+                            type="time"
+                            required
+                            class="w-full border-amber-300 focus:border-amber-500 focus:ring-amber-500 rounded-md pl-10"
+                        />
+                        <i data-lucide="clock" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-amber-500"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="space-y-2">
+                <label for="guests" class="text-amber-800 block">Jumlah Orang</label>
+                <div class="relative">
+                    <input
+                        id="guests"
+                        type="number"
+                        min="1"
+                        max="20"
+                        placeholder="Masukkan jumlah tamu"
+                        required
+                        class="w-full border-amber-300 focus:border-amber-500 focus:ring-amber-500 rounded-md pl-10"
+                    />
+                    <i data-lucide="users" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-amber-500"></i>
+                </div>
+            </div>
+            <div class="space-y-2">
+                <label for="notes" class="text-amber-800 block">Catatan</label>
+                <textarea
+                    id="notes"
+                    placeholder="Tambahkan catatan khusus (opsional)"
+                    class="w-full border-amber-300 focus:border-amber-500 focus:ring-amber-500 rounded-md"
+                ></textarea>
+            </div>
+            <button
+                type="submit"
+                id="submitButton"
+                class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105"
+            >
+                Booking Sekarang
+            </button>
+        </form>
+    </div>
+
+    <!-- Confirmation Popup -->
+    <div id="confirmationPopup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden">
+        <div class="bg-white rounded-lg p-6 max-w-md w-full">
+            <h2 class="text-2xl font-bold text-amber-800 mb-4">Pembokingan Berhasil!</h2>
+            <p class="text-gray-600 mb-6">Terima kasih telah melakukan pembokingan. Silakan lanjutkan ke pembayaran untuk mengkonfirmasi reservasi Anda.</p>
+            <button
+                id="paymentButton"
+                class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105"
+            >
+                Bayar
+            </button>
+        </div>
+    </div>
+
+    <!-- Decorative elements -->
+    <div id="utensilsIcon" class="fixed top-10 left-10 text-amber-600 opacity-50">
+        <i data-lucide="utensils" class="w-12 h-12"></i>
+    </div>
+    <div id="bookOpenIcon" class="fixed bottom-10 right-10 text-amber-600 opacity-50">
+        <i data-lucide="book-open" class="w-12 h-12"></i>
+    </div>
+
+    <script src="../scripts/booking-dinein.js"></script>
+</body>
+</html>

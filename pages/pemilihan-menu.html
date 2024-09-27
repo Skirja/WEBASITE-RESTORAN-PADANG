@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Pilih Menu - Restoran Padang</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://unpkg.com/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+        <link href="../styles.css" rel="stylesheet" />
+    </head>
+    <body class="min-h-screen bg-amber-50">
+        <a
+            href="../index.html"
+            class="absolute top-4 left-4 bg-amber-600 text-white py-2 px-4 rounded-lg hover:bg-amber-700 transition-colors duration-300"
+        >
+            <i data-lucide="home" class="w-5 h-5 inline-block"></i>
+            <span class="hidden md:inline-block md:ml-2">Beranda</span>
+        </a>
+        <div class="container mx-auto px-4 py-8 pt-16 md:pt-8">
+            <h1 class="text-3xl font-bold mb-8 text-amber-800 text-center">
+                Pilih Menu
+            </h1>
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="w-full md:w-2/3">
+                    <div
+                        id="menu-items"
+                        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+                    >
+                        <!-- Menu items will be inserted here by JavaScript -->
+                    </div>
+                </div>
+                <div
+                    id="desktop-cart"
+                    class="w-full md:w-1/3 md:sticky md:top-8 md:self-start hidden md:block"
+                >
+                    <!-- Desktop cart content will be inserted here by JavaScript -->
+                </div>
+            </div>
+        </div>
+        <div
+            id="mobile-cart"
+            class="fixed inset-0 bg-white z-50 overflow-y-auto hidden"
+        >
+            <div class="p-6 relative">
+                <button
+                    id="close-mobile-cart"
+                    class="absolute top-4 right-4 z-10 p-2"
+                >
+                    <i data-lucide="x" class="h-10 w-10"></i>
+                </button>
+                <div class="mt-12">
+                    <!-- Mobile cart content will be inserted here by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-cart-button" class="fixed bottom-4 right-4 z-40 hidden">
+            <button
+                class="h-16 w-16 rounded-full bg-amber-600 hover:bg-amber-700 text-white shadow-lg flex items-center justify-center"
+            >
+                <i data-lucide="shopping-cart" class="h-8 w-8"></i>
+                <span
+                    id="cart-count"
+                    class="absolute top-0 right-0 bg-red-500 text-white rounded-full h-6 w-6 flex items-center justify-center text-xs hidden"
+                ></span>
+            </button>
+        </div>
+
+        <script src="../scripts/pemilihan-menu.js"></script>
+    </body>
+</html>

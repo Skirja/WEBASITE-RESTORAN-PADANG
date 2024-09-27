@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Delivery - Restoran Padang</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+    <link href="../styles.css" rel="stylesheet">
+</head>
+<body class="min-h-screen bg-gradient-to-br from-amber-100 to-amber-200 flex items-center justify-center p-4">
+    <div class="w-full max-w-2xl bg-white shadow-xl rounded-2xl overflow-hidden mt-12 sm:mt-0">
+        <a
+            href="./pemilihan-menu.html"
+            class="fixed top-4 left-4 bg-amber-600 text-white py-2 px-4 rounded-lg hover:bg-amber-700 transition-colors duration-300 flex items-center z-10"
+        >
+            <i data-lucide="arrow-left" class="w-5 h-5"></i>
+            <span class="hidden sm:inline-block sm:ml-2">Kembali</span>
+        </a>
+        <div class="bg-amber-600 p-6 text-white text-center relative overflow-hidden">
+            <div id="pattern-background" class="absolute inset-0 opacity-10"></div>
+            <h1 class="text-3xl font-bold mb-2 relative z-10">Checkout Delivery</h1>
+            <p class="text-amber-100 relative z-10">Lengkapi informasi untuk pengiriman pesanan Anda</p>
+        </div>
+        <form id="checkoutForm" class="p-6 space-y-6">
+            <div class="space-y-2">
+                <label for="name" class="text-amber-800 block">
+                    <i data-lucide="user" class="w-4 h-4 inline-block mr-2"></i>
+                    Nama Lengkap
+                </label>
+                <input
+                    id="name"
+                    placeholder="Masukkan nama lengkap Anda"
+                    required
+                    class="w-full border-amber-300 focus:border-amber-500 focus:ring-amber-500 rounded-md"
+                />
+            </div>
+            <div class="space-y-2">
+                <label for="phone" class="text-amber-800 block">
+                    <i data-lucide="phone" class="w-4 h-4 inline-block mr-2"></i>
+                    Nomor Telepon
+                </label>
+                <input
+                    id="phone"
+                    type="tel"
+                    placeholder="Masukkan nomor telepon Anda"
+                    required
+                    class="w-full border-amber-300 focus:border-amber-500 focus:ring-amber-500 rounded-md"
+                />
+            </div>
+            <div class="space-y-2">
+                <label for="email" class="text-amber-800 block">
+                    <i data-lucide="mail" class="w-4 h-4 inline-block mr-2"></i>
+                    Email
+                </label>
+                <input
+                    id="email"
+                    type="email"
+                    placeholder="Masukkan alamat email Anda"
+                    required
+                    class="w-full border-amber-300 focus:border-amber-500 focus:ring-amber-500 rounded-md"
+                />
+            </div>
+            <div class="space-y-2">
+                <label for="address" class="text-amber-800 block">
+                    <i data-lucide="map-pin" class="w-4 h-4 inline-block mr-2"></i>
+                    Alamat
+                </label>
+                <textarea
+                    id="address"
+                    placeholder="Masukkan alamat lengkap Anda"
+                    required
+                    class="w-full border-amber-300 focus:border-amber-500 focus:ring-amber-500 rounded-md"
+                ></textarea>
+            </div>
+            <div class="space-y-2">
+                <label for="notes" class="text-amber-800 block">
+                    <i data-lucide="clipboard" class="w-4 h-4 inline-block mr-2"></i>
+                    Catatan
+                </label>
+                <textarea
+                    id="notes"
+                    placeholder="Tambahkan catatan untuk pesanan Anda (opsional)"
+                    class="w-full border-amber-300 focus:border-amber-500 focus:ring-amber-500 rounded-md"
+                ></textarea>
+            </div>
+            <div class="space-y-2">
+                <label for="delivery-time" class="text-amber-800 block">
+                    <i data-lucide="truck" class="w-4 h-4 inline-block mr-2"></i>
+                    Estimasi Pengiriman
+                </label>
+                <select id="delivery-time" class="w-full border-amber-300 focus:border-amber-500 focus:ring-amber-500 rounded-md">
+                    <option value="">Pilih waktu pengiriman</option>
+                    <option value="asap">Secepatnya</option>
+                    <option value="30-60">30 - 60 menit</option>
+                    <option value="60-90">60 - 90 menit</option>
+                    <option value="schedule">Jadwalkan Nanti</option>
+                </select>
+            </div>
+            <button
+                type="submit"
+                id="submitButton"
+                class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105"
+            >
+                Lanjutkan ke Pembayaran
+            </button>
+        </form>
+    </div>
+
+    <!-- Confirmation Popup -->
+    <div id="confirmationPopup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden">
+        <div class="bg-white rounded-lg p-6 max-w-md w-full text-center">
+            <i data-lucide="truck" class="w-16 h-16 mx-auto mb-4 text-amber-600"></i>
+            <h2 class="text-2xl font-bold text-amber-800 mb-4">Siap untuk Membayar?</h2>
+            <p class="text-gray-600 mb-6">Pesanan delivery Anda telah dikonfirmasi. Silakan lanjutkan ke pembayaran untuk menyelesaikan proses pemesanan.</p>
+            <button
+                id="proceedToPayment"
+                class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105"
+            >
+                Ok, Lanjutkan ke Pembayaran
+            </button>
+        </div>
+    </div>
+
+    <script src="../scripts/delivery-checkout.js"></script>
+</body>
+</html>

@@ -84,3 +84,53 @@ Website ini dirancang untuk responsif di berbagai ukuran layar:
 - Menggunakan Flexbox dan Grid untuk layout yang fleksibel.
 - Implementasi navbar mobile untuk layar kecil.
 - Penyesuaian ukuran font dan padding untuk readability yang lebih baik di perangkat mobile.
+
+## Penjelasan Detail JavaScript
+
+### 1. script.js (Halaman Utama)
+
+- `storeOrderMethod(method)`: Menyimpan metode pemesanan yang dipilih ke localStorage.
+- `orderMethods`: Array yang berisi informasi tentang metode pemesanan (Dine-in, Takeaway, Delivery).
+- `createTestimonialElement(testimonial)`: Membuat elemen DOM untuk setiap testimonial.
+- `populateTestimonials()`: Mengisi container testimonial dengan elemen-elemen testimonial.
+- `checkScroll()`: Memeriksa posisi scroll testimonial untuk efek loop.
+- `scrollTestimonials()`: Menganimasikan scroll testimonial.
+
+### 2. daftar-menu.js
+
+- `menuItems`: Array yang berisi data menu restoran.
+- `categories`: Array yang berisi kategori menu.
+- `activeCategory`: Variabel yang menyimpan kategori aktif saat ini.
+- `renderCategories()`: Menampilkan tombol filter kategori.
+- `renderMenuItems()`: Menampilkan item menu berdasarkan kategori aktif.
+- `setActiveCategory(category)`: Mengubah kategori aktif dan merender ulang menu.
+- `updateStats()`: Menghitung dan menampilkan jumlah makanan dan minuman.
+
+### 3. pemilihan-menu.js
+
+- `cart`: Array yang menyimpan item dalam keranjang belanja.
+- `isMobile`: Boolean yang menandakan apakah tampilan saat ini mobile atau desktop.
+- `renderMenuItems()`: Menampilkan item menu yang dapat dipilih.
+- `renderCart()`: Menampilkan isi keranjang belanja.
+- `addToCart(id)`: Menambahkan item ke keranjang.
+- `updateQuantity(id, newQuantity)`: Mengubah jumlah item dalam keranjang.
+- `checkIsMobile()`: Memeriksa ukuran layar dan menyesuaikan tampilan.
+
+### 4. booking-dinein.js
+
+- `form.addEventListener('submit', ...)`: Menangani submit form pemesanan.
+- `rotateElement(element, duration, direction)`: Menganimasikan rotasi elemen dekoratif.
+
+### 5. delivery-checkout.js dan takeaway-checkout.js
+
+- `form.addEventListener('submit', ...)`: Menangani submit form checkout.
+- `proceedToPaymentButton.addEventListener('click', ...)`: Menangani aksi lanjut ke pembayaran.
+
+### 6. login.js dan register.js
+
+- `togglePasswordButton.addEventListener('click', ...)`: Menangani toggle visibilitas password.
+- `form.addEventListener('submit', ...)`: Menangani submit form login/registrasi.
+- `rotateElement(element, duration, direction)`: Menganimasikan rotasi elemen dekoratif.
+- `bounceElement(element, distance, duration)`: Menganimasikan efek bounce pada elemen dekoratif.
+
+Setiap file JavaScript menggunakan manipulasi DOM untuk merender konten dinamis, menangani interaksi pengguna, dan menciptakan animasi UI. Penggunaan `localStorage` memungkinkan penyimpanan data sementara di sisi klien, sementara simulasi API calls mendemonstrasikan bagaimana aplikasi akan berinteraksi dengan backend sebenarnya.
